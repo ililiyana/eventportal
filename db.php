@@ -1,8 +1,14 @@
 <?php
 $connectionString = getenv("DB_CONNECTION_STRING");
 
-// Parse the connection string
-preg_match("/Server=(.*);Initial Catalog=(.*);User ID=(.*);Password=(.*);/", $connectionString, $matches);
+if (!$connectionString) {
+    die("Environment variable DB_CONNECTION_STRING is not set.");
+}
+
+if (!preg_match("/Server=(.*);Initial Catalog=(.*);User ID=(.*);Password=(.*);/", $connectionString, $matches)) {
+    die("Failed to parse DB_CONNECTION_STRING.");
+}
+
 $server = $matches[1];
 $database = $matches[2];
 $user = $matches[3];
