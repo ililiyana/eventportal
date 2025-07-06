@@ -1,10 +1,11 @@
 <?php
-$host = "eventhorizonmysql.mysql.database.azure.com";
-$username = "mysqladmin@eventhorizonmysql";
-$password = "YourPassword";
-$dbname = "eventhorizon";
+$server = getenv("DB_SERVER");
+$database = getenv("DB_NAME");
+$username = getenv("DB_USER");
+$password = getenv("DB_PASS");
 
-$conn = new mysqli($host, $username, $password, $dbname);
+$conn = new mysqli($server, $username, $password, $database);
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
