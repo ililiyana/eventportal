@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($users && password_verify($password, $users['password'])) {
         $_SESSION['users'] = $users['name'];
-        header("Location: dashboard.php");
+        header("Location: EventListing.php");
         exit();
     } else {
         $error = "Invalid name or password.";
