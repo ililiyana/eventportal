@@ -71,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form method="POST" action="">
   <div class="container">
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label><b>Name</b></label>
+    <input type="text" placeholder="Enter Username" name="name" required>
 
     <label><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
