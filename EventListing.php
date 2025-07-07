@@ -1,10 +1,10 @@
 <?php
 // Connect to Azure SQL Server
-$server = getenv("DB_SERVER");
+$server = getenv('DB_SERVER');
 $connectionOptions = array(
-    "Database" => getenv("DB_NAME"),
-    "Uid" => getenv("DB_USER"),
-    "PWD" => getenv("DB_PASS"),
+    "Database" => getenv('DB_NAME'),
+    "Uid" => getenv('DB_USER'),
+    "PWD" => getenv('DB_PASS'),
     "Encrypt" => 1,
     "TrustServerCertificate" => 0
 );
