@@ -19,11 +19,11 @@ if (!$conn) {
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['uname'];
+    $name = $_POST['name'];
     $password = $_POST['psw'];
 
-    $sql = "SELECT * FROM users WHERE username = ?";
-    $params = array($username);
+    $sql = "SELECT * FROM users WHERE name = ?";
+    $params = array($name);
     $stmt = sqlsrv_query($conn, $sql, $params);
 
     if ($stmt === false) {
@@ -33,11 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user'] = $user['username'];
+        $_SESSION['user'] = $user['name'];
         header("Location: dashboard.php");
         exit();
     } else {
-        $error = "Invalid username or password.";
+        $error = "Invalid name or password.";
     }
 }
 ?>
