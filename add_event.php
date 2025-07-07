@@ -17,7 +17,7 @@ if (!$conn) {
 }
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'Organizer') {
-    header("Location: dashboard.php");
+    header("Location: EventListing.php");
     exit;
 }
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    header("Location: dashboard.php");
+    header("Location: EventListing.php");
     exit;
 }
 ?>
@@ -144,7 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
     
 </div>
-<a class="btn" href="dashboard.php">← Back to Dashboard</a>
+<a class="btn" href="EventListing.php">← Back to Dashboard</a>
 
 </body>
 </html>
