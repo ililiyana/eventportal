@@ -17,7 +17,7 @@ if (!$conn) {
 }
 
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'Organizer') {
-    header("Location: dashboard.php");
+    header("Location: EventListing.php");
     exit;
 }
 
@@ -30,7 +30,7 @@ if (isset($_POST['confirm_delete'])) {
         die(print_r(sqlsrv_errors(), true));
     }
 
-    header("Location: dashboard.php");
+    header("Location: EventListing.php");
     exit;
 }
 
@@ -62,7 +62,7 @@ if (!$event) {
 <form method="POST">
     <input type="hidden" name="id" value="<?= $event['id'] ?>">
     <button type="submit" name="confirm_delete" style="background-color:red;color:white;padding:8px;">Yes, Delete</button>
-    <a href="dashboard.php" style="padding:8px;background-color:gray;color:white;text-decoration:none;">Cancel</a>
+    <a href="EventListing.php" style="padding:8px;background-color:gray;color:white;text-decoration:none;">Cancel</a>
 </form>
 </body>
 </html>
