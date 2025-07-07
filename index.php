@@ -14,7 +14,7 @@ $serverName = getenv('DB_SERVER'); // e.g., your-sqlserver.database.windows.net
 $conn = sqlsrv_connect($serverName, $connectionOptions);
 
 if (!$conn) {
-    die("❌ Connection failed: " . print_r(sqlsrv_errors(), true));
+    die("Connection failed: " . print_r(sqlsrv_errors(), true));
 }
 
 // Handle form submission
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Query error: " . print_r(sqlsrv_errors(), true));
     }
 
-    $user = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+    $users = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
 
     if ($users && password_verify($password, $users['password'])) {
         $_SESSION['users'] = $users['name'];
